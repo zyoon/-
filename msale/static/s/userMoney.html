@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Mr.Ten</title>
+    <link rel="icon" type="image/x-icon" href="/i/css/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/i/css/img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/i/css/img/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/loading.css">
+    <link rel="stylesheet" type="text/css" href="/i/css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/mobile.css">
+
+</head>
+
+<body>
+    <!--page start-->
+    <div class="header bgc-FFF100">
+        <ul class="headerMenu flex">
+            <li onclick="window.history.go(-1)"><i class="icon iconfont icon-arrowleft"></i></li>
+            <h1 class="flex-1 theme">钱包充值</h1>
+            <li></li>
+        </ul>
+    </div>
+    <!--main start-->
+    <div class="main scrollable">
+
+        <div class="addEdit">
+            <li class="flex">
+                <h2 class="flex-1" style="font-size: 15px;text-align: center;">钱包余额: <span style="margin:0" class="balance"></span> 元</h2>
+              </li>
+
+
+            <li class="flex">
+                <h1 style="    text-align: center;margin-left: 30px;" class="newTheme">金额</h1>
+                <h2 class="flex-1"><input onkeyup="clearNoNum(this)"  type="number"  oncopy="return false" onpaste="return false"  ondragstart="return false" onselectstart="return false"  style="width: 60%;;"  placeholder="请输入充值金额" autocomplete="off" class="newmoney" value="">
+                <span style="margin: 0 0 0 14px;">元</span></h2>
+              </li>
+
+
+            <div>
+                <button type="button" class="moneySubmit bgc-17D7B0" onclick="submitMoney()">确定充值</button>
+            </div>
+        </div>
+    </div>
+    <!--main end-->
+
+    <!--page end-->
+    <script type="text/javascript" src="/i/js/_e.js"></script>
+    <script type="text/javascript" src="/i/js/msgbox.js"></script>
+    <script type="text/javascript" src="i/js/userMoney.js"></script>
+    <script type="text/javascript" src="/s/i/js/pingpp.js"></script>
+
+
+</body>
+
+</html>

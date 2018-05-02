@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>Mr.Ten</title>
+    <link rel="icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/i/css/img/favicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/loading.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/iconfont/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/mobile.css" />
+
+    <script type="text/javascript" src="i/js/user.js"></script>
+    <style type="text/css">
+        .userCenter .userLevel {
+            width: auto;
+            height: auto;
+        }
+
+        .userCenter .userLevel div {
+            background-color: #333;
+            color: #CCC;
+            padding: 6px 0;
+        }
+
+        .userCenter .userLevel div ul {
+            font-size: 12px;
+            padding: 3px 0 0 10px;
+        }
+
+        .userCenter .userLevel div ul b {
+            color: #FFF;
+            margin: 0 3px;
+        }
+
+        .userCenter .userLevel div li {
+            padding: 0 15px;
+        }
+
+        .userCenter .userAssets {
+            width: auto;
+            height: auto;
+        }
+
+        .userCenter .userAssets div {
+            background-color: #FAFAFA;
+        }
+
+        .userCenter .userAssets div ul {
+            width: auto;
+            height: 60px;
+            text-align: center;
+        }
+
+        .userCenter .userAssets div ul h1 {
+            font-size: 16px;
+            margin: 12px 0 0 0;
+        }
+
+        .userCenter .userAssets div ul h2 {
+            font-size: 12px;
+            color: #AAA;
+        }
+    </style>
+</head>
+
+<body>
+    <!--page start-->
+    <div class="header bgc-FFF100">
+        <ul class="headerMenu flex">
+            <div><i class="icon iconfont icon-shoptenlogo"></i></div>
+            <h1 class="flex-1">用户中心</h1>
+            <li onclick="location.href='search.html';"><i class="icon iconfont icon-search"></i></li>
+        </ul>
+    </div>
+    <!--main start-->
+    <div class="main scrollable">
+
+        <div class="userCenter">
+
+            <div class="userInfo">
+
+            </div>
+            <!-- 会员 -->
+            <div class="userLevel">
+                <div class="flex">
+                    <ul class="flex-1" id="userAvatar">当前为会员等级<b id="membershipGrade"></b>,距离<b id="membershipDistance"></b>需要<b id="upgradeIntegration"></b>积分</ul>
+                    <li><i class="icon iconfont"  onclick="location.href='memberDescription.html';">&#xe60b;</i></li>
+                </div>
+            </div>
+
+            <div class="userAssets">
+                <div class="flex">
+                    <ul class="flex-1 border-r-1-s-EEEEEE">
+                        <h1 id="memberPoints"></h1>
+                        <h2>目前积分</h2></ul>
+                    <ul class="flex-1 border-r-1-s-EEEEEE">
+                        <h1 id="membershipDiscount"></h1>
+                        <h2>会员折扣</h2></ul>
+                </div>
+            </div>
+
+
+
+            <div class="userList">
+                <ul class="flex" onclick="location.href='useraddress.html';">
+                    <h1><i class="icon iconfont icon-location"></i></h1>
+                    <h2 class="flex-1">收货地址</h2>
+                    <h3></h3>
+                    <p><i class="icon iconfont icon-arrowright"></i></p>
+                </ul>
+
+                <ul class="flex" onclick="location.href='modifyPhone.html';">
+                    <h1><i class="icon iconfont icon-mobile"></i></h1>
+                    <h2 class="flex-1">绑定手机</h2>
+                    <h3 class="loadPhone"></h3>
+                    <p><i class="icon iconfont icon-arrowright"></i></p>
+                </ul>
+                <ul class="flex" onclick="location.href='coupon.html';">
+                    <h1><i class="icon iconfont icon-fruit"></i></h1>
+                    <h2 class="flex-1">优惠券</h2>
+                    <h3> </h3>
+                    <p><i class="icon iconfont icon-arrowright"></i></p>
+                </ul>
+                <ul class="flex" onclick="location.href='memberUpgrade.html';">
+                    <h1><i class="icon iconfont icon-star" style="color: #fff100;"></i></h1>
+                    <h2 class="flex-1">会员升级</h2>
+                    <h3> </h3>
+                    <p><i class="icon iconfont icon-arrowright"></i></p>
+                </ul>
+                <ul class="flex" onclick="location.href='userMoney.html';">
+                    <h1><i class="icon iconfont icon-purse" style="color: crimson;"></i></h1>
+                    <h2 class="flex-1">钱包</h2>
+                    <h3 class="money"></h3>
+                    <p><i class="icon iconfont icon-arrowright"></i></p>
+                </ul>
+                <ul class="flex" id="deptphone">
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <!--main end-->
+    <div class="footer bgc-FFFFFF">
+        <ul class="footerMenu flex">
+            <li class="flex-1 border-r-1-s-EEEEEE" onclick="location.href='index.html';">首页</li>
+            <li class="flex-1 border-r-1-s-EEEEEE" onclick="location.href='goods.html?code=67';">商品</li>
+            <li class="flex-1 border-r-1-s-EEEEEE" onclick="location.href='newcart.html';">购物车</li>
+            <li class="flex-1 border-r-1-s-EEEEEE" onclick="location.href='order.html';">订单</li>
+            <li class="flex-1 hover">帐户</li>
+        </ul>
+    </div>
+    <!--page end-->
+    <script type="text/javascript">
+
+    // console.log("pageGoYouzan   "+localStorage.getItem("pageGoYouzan"))
+    // 	if(localStorage.getItem("pageGoYouzan")==null||localStorage.getItem("pageGoYouzan")==0){
+    // 		window.location.href = "pagegoyouzan.html"
+    // 	}
+        // document.querySelector(".toggleOff, .toggleOn").addEventListener("click",function(){
+        //        if(this.getAttribute("class") == "toggleOff"){
+        //            this.setAttribute("class","toggleOn")
+        //        }else{
+        //            this.setAttribute("class","toggleOff")
+        //        }
+        //        return false;
+        //    },true)
+
+        var back = localStorage.getItem("back")
+        console.log('back  ' + back)
+        localStorage.setItem("back", 1)
+        history.pushState({
+            a: true
+        }, null, "")
+        window.onpopstate = function() {
+            localStorage.setItem("back", 1)
+        }
+    </script>
+
+</body>
+
+</html>

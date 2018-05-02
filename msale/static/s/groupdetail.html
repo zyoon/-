@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<title>Mr.Ten</title>
+	<link rel="icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+	<link rel="apple-touch-icon-precomposed" href="/i/css/img/favicon.png" />
+
+	<link rel="stylesheet" type="text/css" href="/i/css/sale/loading.css" />
+	<link rel="stylesheet" type="text/css" href="/i/css/iconfont/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="/i/css/sale/mobile.css" />
+	<link rel="stylesheet" type="text/css" href="/i/css/sale/swiper.css" />
+
+</head>
+
+<body>
+	<!--page start-->
+	<div class="header bgc-FFF100">
+		<ul class="headerMenu flex">
+			<li onclick="window.history.go(-1)"><i class="icon iconfont icon-arrowleft"></i></li>
+			<h1 class="flex-1">团购商品详情</h1>
+			<li></li>
+		</ul>
+	</div>
+	<!--main start-->
+	<div class="main">
+		<div class="topAd">
+		</div>
+		<div class="pagination-panel">
+			<ul class="pagination">
+			</ul>
+		</div>
+		<div class="goodsDetail">
+			<div class="info">
+			</div>
+			<div class="service">
+
+			</div>
+
+			<div class="remark">
+
+			</div>
+
+			<div class="viewDetail">
+				<div>查看详情</div>
+			</div>
+
+			<div class="detail display-none">
+
+			</div>
+		</div>
+
+		<div class="goodsActivity display-none">
+
+		</div>
+	</div>
+	<!--main end-->
+
+	<!--buyer start-->
+	<div class="buyer">
+		<div class="flex">
+			<ul class="flex">
+				<a href="tel:0755-26995799">
+					<p><i class="icon iconfont icon-phone"></i></p>
+				</a>
+				<!--<p class="addFavorite"><i class="icon iconfont icon-hearto"></i></p>-->
+				<!--/*onclick="location.href='cart.html';"*/-->
+				<p onclick="location.href='cart.html';" class="cartShow">
+
+				</p>
+			</ul>
+			<li class="flex-1 bgc-17D7B0 openBuy" style="margin: 0 1px;border-radius: 5px;">单独购买</li>
+			<li class="flex-1 bgc-F04253 opengroup" style="margin: 0 1px;border-radius: 5px;">开团</li>
+		</div>
+	</div>
+	<!--buyer start-->
+
+	<!--page end-->
+
+	<!--<li style="height:200px; background-repeat:no-repeat; background-position:center center; background-size:cover; background-image: url('http://mrten-0.shopten.cn/301.jpg')"></li>-->
+	<!--win start-->
+	<div class="winbg closewin newclosewin">
+		<!--购买 start-->
+		<div class="bottomWin buyWin">
+			<div class="mainDiv">
+				<div class="goodsInfo">
+				</div>
+				<div class="goodsSpec">
+					<!--<li class="hover"><i class="icon iconfont icon-checkcircle"></i>1.5 KG</li>
+                <li><i class="icon iconfont icon-infocircleo"></i>2.5 KG</li>-->
+				</div>
+
+				<div class="promotionLoad">
+					<div class="goodsGiftTips giftparkage"></div>
+					<div class="goodsGift">
+						<table>
+							<tr class="gift">
+
+							</tr>
+						</table>
+					</div>
+				</div>
+
+
+				<div class="winButton flex newwinButton">
+					<!--	onclick="location.href='cart.html';"-->
+					<p class="flex-1 addcart bgc-17D7B0">加入购物车</p>
+					<p class="flex-1 adddcart bgc-F06962" onclick="location.href='cart.html';">立即购买</p>
+				</div>
+			</div>
+		</div>
+		<!--购买 end-->
+
+	</div>
+	<!--win end-->
+
+
+	<div class="winbg groupclosewin" style="display:none">
+		<!--购买 start-->
+		<div class="bottomWin groupbuyWin">
+			<div class="mainDiv ">
+				<div class="goodsInfo groupbuygoodsinfo">
+				</div>
+				<div class="goodsSpec">
+					<!--<li class="hover"><i class="icon iconfont icon-checkcircle"></i>1.5 KG</li>
+                <li><i class="icon iconfont icon-infocircleo"></i>2.5 KG</li>-->
+				</div>
+
+				<div class="promotionLoad">
+					<div class="goodsGiftTips giftparkage "></div>
+					<div class="goodsGift ">
+						<table>
+							<tr class="gift">
+
+							</tr>
+						</table>
+					</div>
+				</div>
+
+
+				<div class="winButton flex groupflex">
+					<!--	onclick="location.href='cart.html';"-->
+
+					<p class="flex-1 groupCart bgc-F06962">下一步</p>
+				</div>
+			</div>
+		</div>
+		<!--购买 end-->
+
+	</div>
+	<!--win end-->
+
+
+
+	<script src="/i/js/hammer.js"></script>
+	<script src="/i/js/swiper.js"></script>
+	<script src="/i/js/msgbox.js"></script>
+	<script src="/i/js/_e.js"></script>
+	<script src="i/js/groupdetail.js"></script>
+	<script type="text/javascript">
+		window.onload = orderDetail
+			// document.querySelector("body").style.overflowY="hidden"
+			// document.querySelector("body").style.position="fixed"
+		document.getElementsByClassName("newclosewin")[0].style.display = "none"
+		//document.getElementsByClassName("newwinButton")[0].style.display = "none"
+
+		_e.bindAll(".openBuy", "click", buyDetail)
+		function buyDetail() {
+			document.querySelector("body").style.overflowY = "hidden"
+			document.querySelector("body").style.position = "fixed"
+			document.getElementsByTagName("body")[0].style.overflow = "hidden"
+			document.getElementsByClassName("newclosewin")[0].style.display = "block"
+			//document.getElementsByClassName("newwinButton")[0].style.display = "block"
+		}
+
+
+		_e.bindAll(".opengroup", "click", groupDetail)
+		function groupDetail() {
+			document.querySelector("body").style.overflowY = "hidden"
+			document.querySelector("body").style.position = "fixed"
+			document.getElementsByTagName("body")[0].style.overflow = "hidden"
+			document.getElementsByClassName("groupclosewin")[0].style.display = "block"
+			document.getElementsByClassName("groupflex")[0].style.display = "block"
+		}
+
+
+
+		document.querySelectorAll(".display-none")[0].style.display = "none"
+		document.querySelector(".goodsActivity").style.display = "block"
+
+
+		_e.bind(".viewDetail", "click", lookDetails)
+
+		function lookDetails() {
+			document.querySelector(".viewDetail").style.display = "none"
+			if (document.querySelector(".display-none").style.display == "none") {
+				document.querySelectorAll(".display-none")[0].style.display = "block"
+			} else {
+				document.querySelectorAll(".display-none")[0].style.display = "none"
+			}
+		}
+
+		history.pushState({
+			a: true
+		}, null, "")
+		window.onpopstate = function() {
+			localStorage.setItem("back", "1")
+			history.go(-1)
+		}
+
+		document.querySelectorAll(".bottomWin")[0].onclick = function() {
+			event.stopPropagation(); // do something
+		}
+
+
+		_e.bind(".newclosewin", "click", closex) //点击别的地方关闭详情
+		function closex() {
+			document.querySelector("body").style.position = "relative"
+			document.querySelector("body").style.overflowY = "auto"
+			document.getElementsByTagName("body")[0].style.overflow = "auto"
+			document.getElementsByClassName("newclosewin")[0].style.display = "none"
+			//document.getElementsByClassName("newwinButton")[0].style.display = "none"
+		}
+
+		_e.bind(".groupclosewin", "click", closexs) //点击别的地方关闭详情
+
+		function closexs() {
+			document.querySelector("body").style.position = "relative"
+			document.querySelector("body").style.overflowY = "auto"
+			document.getElementsByTagName("body")[0].style.overflow = "auto"
+			document.getElementsByClassName("groupclosewin")[0].style.display = "none"
+			document.getElementsByClassName("groupflex")[0].style.display = "none"
+		}
+
+		document.querySelectorAll(".bottomWin")[1].onclick = function() {
+			event.stopPropagation(); // do something
+		}
+
+	</script>
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>Mr.Ten</title>
+    <link rel="icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/i/css/img/favicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/loading.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/iconfont/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/mobile.css" />
+
+
+</head>
+
+<body>
+    <!--page start-->
+    <div class="header bgc-FFF100">
+        <ul class="headerMenu flex">
+            <div  onclick="window.history.go(-1)"><i class="icon iconfont icon-arrowleft" style="font-size: 16px;"></i></div>
+            <h1 class="flex-1">确认订单</h1>
+            <li onclick="location.href='index.html';"><i class="icon iconfont icon-shoptenlogo" style="font-size:25px"></i></li>
+        </ul>
+    </div>
+    <!--main start-->
+    <div class="main scrollable">
+
+        <div class="cartList">
+            <div class="address" onclick="groupAddress()">
+
+            </div>
+
+            <div class="payType">
+                <div class="flex" style="border-bottom: 1px solid #EEE;">
+                    <ul><i class="icon iconfont icon-checkcircle"></i></ul>
+                    <li class="flex-1">在线支付<span>目前仅只支持在线支付</span></li>
+                    <p></p>
+                </div>
+            </div>
+            <!-- <div class="payType">
+				<div class="flex" style="height: 18px;padding: 11px;">
+					<ul><i class="icon iconfont icon-timing" style="margin-left: 6px;"></i>
+					</ul>
+					<li class="flex-1"><span style="margin: auto;position: absolute;" class="freeTime"></span></li>
+					<p></p>
+				</div>
+			</div> -->
+
+            <!-- <div class="deliveryTime" style="display: none">
+				<div class="select">
+					<label>便利店商品 选择配送时间</label>
+					<select class="select selectnode" name="">
+						<option value="1" disabled="true" selected="">便利店商品 选择配送时间</option>
+					</select>
+				</div>
+			</div> -->
+
+
+            <div class="goodsListOrder">
+                <!-- <ul class="flex"><img src="../upload/p2.jpg" alt="" style="    width: 60px;height: 60px;margin: 10px 0;">
+                    <li class="flex-1">
+                        <h1 style="margin: 5px 0;">进口野生智利车厘子</h1>
+                        <h2 class="flex"><p class="flex-1">规格 : 1kg</p><p class="flex-1 ta-center">¥120.00</p><p class="flex-1 ta-right">x1</p></h2></li>
+                </ul> -->
+            </div>
+
+            <!-- <div class="goodsTypeTitle preorderGoodsType" style="display: none">
+				<div class="flex">
+					<h1 class="flex-1">新鲜预订商品</h1>
+				</div>
+			</div> -->
+            <!-- <div class="goodsListCart reserveGoodsListCart"> </div> -->
+            <!-- <div class="shipment bShipment" style="border-bottom: 1px solid #EEE;display: none">
+				<div class="flex">
+					<li class="flex-1">
+						<h1>便利店商品配送费</h1>
+						<h2 class="bfree"></h2>
+					</li>
+					<p class="bMoney"></p>
+				</div>
+			</div> -->
+            <!-- <div class="shipment pShipment" style="border-bottom: 1px solid #EEE;display: none">
+				<div class="flex">
+					<li class="flex-1">
+						<h1>预定配送费用</h1>
+						<h2 class="pfree"></h2>
+					</li>
+					<p class="pMoney"></p>
+				</div>
+			</div> -->
+            <!--	<div class="goodsTypeTitle">
+					<div class="flex">
+						<h1 class="flex-1">留言</h1>
+						<h2></h2>
+					</div>
+				</div>-->
+            <div class="freebackReply">
+                <div style="margin-top: 15px">
+                    <textarea placeholder="请输入留言（50字以内）..." onkeydown="checkEnter(event)" oninput="HAuto(this)" class="freebackReplyTextarea"></textarea>
+                </div>
+            </div>
+
+
+        </div>
+        <!--main end-->
+
+
+
+        <!--page end-->
+
+        <!--win start-->
+        <!-- <div class="winbg closewin">
+
+
+			<div class="tipsWin cartTipsWin">
+				<div class="mainDiv">
+					<div class="infoTips">
+						<div>
+							<ul><i class="icon iconfont icon-infocircleo"></i></ul>
+							<li class="deliveryfee">
+
+							</li>
+							<p>
+								<button type="button" class="bgc-EEEEEE" onclick="location.href='goods.html?commodetytype=1&classid=4';">返回购物</button>
+								<button type="button" class="submitdata bgc-EEEEEE">确定开团</button>
+							</p>
+						</div>
+					</div>
+					<div class="closeInfoTips">
+						<li></li>
+						<p class="closewin"><i class="icon iconfont icon-close"></i></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div> -->
+        <!--win end-->
+        <div class="checkOut" style="bottom:0;">
+            <div class="flex">
+                <ul class="flex-1">共计 ： <span class="numprice"></span><b></b></ul>
+                <li>
+                    <button type="button" class="bgc-17D7B0 subbtn">确定下单</button>
+                </li>
+            </div>
+        </div>
+        <!-- <div class="footer bgc-FFFFFF">
+		<ul class="footerMenu flex">
+			<li class="flex-1 border-r-1-s-EEEEEE" onclick="location.href='index.html';">首页</li>
+			<li class="flex-1 border-r-1-s-EEEEEE" onclick="location.href='goods.html?commodetytype=1&classid=4';">商品</li>
+			<li class="flex-1 border-r-1-s-EEEEEE hover showCart">购物车</li>
+			<li class="flex-1 border-r-1-s-EEEEEE" onclick="location.href='order.html';">订单</li>
+			<li class="flex-1" onclick="location.href='user.html';">帐户</li>
+		</ul>
+	</div> -->
+        <script type="text/javascript" src="/i/js/_e.js"></script>
+        <script type="text/javascript" src="/i/js/msgbox.js"></script>
+        <script src="i/js/groupconfirm.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            history.pushState({
+                a: true
+            }, null, "")
+            window.onpopstate = function() {
+                localStorage.setItem("back", "1")
+                    //			history.go(-1)
+            }
+        </script>
+</body>
+
+</html>

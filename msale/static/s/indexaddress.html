@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>Mr.Ten</title>
+    <link rel="icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/i/css/img/favicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/loading.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/iconfont/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/mobile.css" />
+    <script type="text/javascript" src="/i/js/_e.js"></script>
+    <script type="text/javascript" src="/i/js/msgbox.js"></script>
+
+</head>
+<body>
+<!--page start-->
+<div class="header bgc-FFF100">
+    <ul class="headerMenu flex">
+        <li class="returnH" onclick="window.history.go(-1)"><i class="icon iconfont icon-arrowleft"></i></li>
+        <h1 class="flex-1">请选择小区</h1>
+    </ul>
+</div>
+
+<div class=" bgc-FFF100" style="margin-top: 48px;border-bottom: 3px solid #EEE;">
+    <form>
+        <ul class="headerMenu flex" style="background-color:#FFF;">
+
+            <li class="searchBtn"><i class="icon iconfont"></i></li>
+            <input type="text" oninput="subName()" placeholder="输入小区名称进行搜索..." autocomplete="off" class="searchInput flex-1">
+        </ul>
+    </form>
+</div>
+
+<div class="main scrollable" style="padding: 0 0 0 0 ">
+
+
+    <div class="addList" style="margin: 0">
+
+    </div>
+    <div class="loading">
+          <div class="rect1"></div>
+     	  <div class="rect2"></div>
+      	  <div class="rect3"></div>
+      	  <div class="rect4"></div>
+         <div class="rect5"></div>
+    </div>
+</div>
+<!--main end-->
+
+<!--page end-->
+
+ <script type="text/javascript" src="i/js/indexaddress.js"></script>
+ <script type="text/javascript">
+ var back = localStorage.getItem("back")
+ var inner=""
+ localStorage.setItem("innerHTML", inner)
+ console.log('back  ' + back)
+ localStorage.setItem("back",0)
+ history.pushState({a:true},null,"")
+ window.onpopstate = function(){
+   localStorage.setItem("back",1)
+ }
+
+ </script>
+</body>
+</html>

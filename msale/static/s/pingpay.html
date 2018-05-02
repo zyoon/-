@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>MiniCheckout</title>
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/pinus.css">
+</head>
+<body>
+<header>
+    <div class="h_content">
+        <span></span>
+    </div>
+</header>
+<section class="block">
+    <div class="content2">
+        <div class="app">
+            <span class="iphone"><img src="/i/css/img/bgpic.jpg" width="100%" height="auto"></span>
+            <label class="text_amount">
+                <!-- <input id="amount" type="text" placeholder="金 额"/> -->
+                <p id="amount"></p>
+            </label>
+
+            <div class="ch" id="payurls">
+                <span class="up" onclick="wap_pay('wx_pub')">微信支付</span>
+                <span class="up" id="s"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="i/js/pingpp.js" type="text/javascript"></script>
+<script>
+window.onload=function () {
+          document.getElementById("amount").innerText="金额:    "+amount/100+" 元"
+}
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null)
+        return unescape(r[2]);
+    return null;
+}
+var amount=parseInt(getUrlParam("price"))
+  function wap_pay(channel) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/sales/pay/wxpub", true);
+      xhr.setRequestHeader("Content-type", "application/json");
+
+      xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+              var charge=eval('(' + xhr.responseText + ')');
+              pingpp.createPayment(charge, function(result, error){
+                  if (result == "success") {
+                      // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
+                      alert("支付成功");
+                      window.location.href="order.html"
+                  } else if (result == "fail") {
+                      document.getElementById("s").textContent=error.msg+"--"+error.extra
+                      // charge 不正确或者微信公众账号支付失败时会在此处返回s
+                      alert("支付失败");
+                  } else if (result == "cancel") {
+                      // 微信公众账号支付取消支付
+                      alert("取消支付");
+                  }
+              });
+          }
+}
+xhr.send(JSON.stringify({
+    channel: channel,
+    amount: amount
+        }))
+}
+</script>
+</body>
+</html>

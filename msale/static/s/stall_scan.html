@@ -1,0 +1,160 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>微信JS-SDK Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="http://203.195.235.76/jssdk/css/style.css?ts=1420774989">
+</head>
+<body ontouchstart="">
+<div class="wxapi_container">
+    <div class="lbox_close wxapi_form">
+        <h3 id="menu-scan">微信扫一扫</h3>
+        <span class="desc">调起微信扫一扫接口</span>
+        <button class="btn btn_primary" id="scanQRCode1">scanQRCode(微信处理扫描d)</button>
+    </div>
+    <table border="1" style="width: 100%">
+        <thead>
+            <tr>
+                <th>商品名</th>
+                <th>规格</th>
+                <th>单价</th>
+                <th style="width: 100px">数量</th>
+            </tr>
+        </thead>
+        <tbody id="commodity"></tbody>
+        <tfoot id="commodity_total"> </tfoot>
+    </table>
+
+</div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"> </script>
+<script>
+function get_config(){
+  var url = window.location.href.split("#")[0]
+  var xml = new XMLHttpRequest()
+  xml.open("POST","http://www.newfan.net.cn/wx/get_jssdk",true)
+  xml.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xml.onreadystatechange = function () {
+      if (xml.readyState == 4 && xml.status == 200) {
+      var responseText = xml.responseText;
+      var responseTextJson = JSON.parse(responseText)
+      wx.config({
+          debug:true,
+          appId: "wx15c6a124160fb8fb",
+          timestamp: responseTextJson.timestamp,
+          nonceStr: responseTextJson.nonce,
+          signature:responseTextJson.signature,
+          jsApiList: [
+              'scanQRCode'
+
+          ]
+      })
+  }
+}
+xml.send("url="+url)
+}
+
+window.onload = function () {
+   get_config()
+}
+wx.ready(function () {
+
+})
+wx.error(function (res) {
+    alert(res.errMsg);
+})
+      var total = 0
+       var commodity_total = document.querySelector("#commodity_total")
+    //对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+    document.querySelector('#scanQRCode1').onclick = function () {
+
+        wx.scanQRCode({
+            needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+            scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+            success: function (res) {
+                var barcode = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                var repeat_code=document.querySelector("#commodity").getElementsByTagName("tr")
+                for(var i=0;i<repeat_code.length;i++){
+                  if(repeat_code[i].getAttribute("mybarcode")== barcode){
+                   repeat_code[i].getElementsByTagName("i")[0].innerText++
+                   total = total + (parseFloat(repeat_code[i].querySelector(".price").innerHTML)*100)
+                   commodity_total.innerHTML = '<br/><span>总计：' + total/100 + '</span>'+
+                           '<input type="button"  onclick="accounts()"  value="结算" style="font-size: 20px;background-color: #D60D0D;border: 1px solid #D60D0D;" />'
+                   return
+                      }
+                }
+                 var xhr = new XMLHttpRequest();
+                 xhr.open("GET", "/wx/jssdk/scanQR?barcode="+barcode,true);
+                 xhr.onreadystatechange = function () {
+                     if (xhr.readyState == 4 && xhr.status == 200) {
+                       var d=eval('(' + xhr.responseText + ')')
+                       adddom(d.commodity[0],barcode,d.discount)
+                        }
+                     }
+                        xhr.send()
+
+
+                   }
+
+        });
+
+    };
+    function have_commdity(code){
+      var commoditys=document.querySelectorAll(".commodity_row")
+      for(var i=0;i<commoditys.length;i++){
+          if(commoditys[i].id==code){
+              return 1
+          }
+      }
+      return 0
+    }
+    function adddom(o_info,barcode) {
+      if (have_commdity(barcode)==1){
+                alert("11")
+      }else{
+        var commodity = document.querySelector("#commodity")
+           var commodity_data = document.createElement("tr")
+           commodity_data.setAttribute("mybarcode",barcode)
+           commodity_data.setAttribute("id",barcode)
+           commodity_data.setAttribute("class","commodity_row")
+           commodity_data.innerHTML = '<td>'+ o_info[] +'</td>'+
+                           '<td>'+o_info["unit"]+'</td>'+
+                           '<td class="price">'+parseInt(o_info["price"])/100+'</td>'+
+                           '<td style="text-align: center;padding-left: 5px;">'+ '<span class="lessCount" style="border:1px solid green;margin-right: 10px;border-radius: 50%;" onclick="lessCount(this)">-</span>' +
+                   '<i class="count" style="margin-right: 10px;">1</i>' + '<span class="addCount" style="border:1px solid green;border-radius: 50%;" onclick="addCount(this)">+</span>'+'</td>'
+           commodity.appendChild(commodity_data)
+           total+=parseInt(o_info["price"])
+           commodity_total.innerHTML = '<br/><span>总计：' + total/100 + '</span>'+
+                   '<input type="button"  onclick="accounts()" value="结算" style="font-size: 20px;background-color: #D60D0D;border: 1px solid #D60D0D;" />'
+      }
+
+    }
+    function addCount(e){
+        var c=e.parentNode.querySelector(".count").innerHTML
+         e.parentNode.querySelector(".count").innerHTML = parseInt(c)+1
+        total = total + (parseFloat(e.parentNode.parentNode.querySelector(".price").innerHTML)*100)
+
+        commodity_total.innerHTML = '<br/><span>总计：' + total/100 + '</span>'+
+                '<input type="button"  onclick="accounts()"  value="结算" style="font-size: 20px;background-color: #D60D0D;border: 1px solid #D60D0D;" />'
+    }
+
+    function lessCount(e){
+      var c=parseInt(e.parentNode.querySelector(".count").innerHTML)
+        if(c> 0){
+            e.parentNode.querySelector(".count").innerHTML = c-1
+            total = total - (parseFloat(e.parentNode.parentNode.querySelector(".price").innerHTML)*100)
+            commodity_total.innerHTML = '<br/><span>总计：' + total/100 + '</span>'+
+                    '<input type="button"  onclick="accounts()"  value="结算" style="font-size: 20px;background-color: #D60D0D;border: 1px solid #D60D0D;" />'
+               return
+        }
+        if(c == 0){
+            alert("数量不能为负数!")
+            return
+        }
+    }
+   function accounts() {
+     window.location.href="pingpay.html?price="+total
+  }
+</script>
+</html> -->

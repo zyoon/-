@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Mr.Ten</title>
+    <link rel="icon" type="image/x-icon" href="/i/css/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/i/css/img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/i/css/img/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/loading.css">
+    <link rel="stylesheet" type="text/css" href="/i/css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/mobile.css">
+    <style type="text/css">
+        body{
+          background-color: rgba(255, 194, 77, 0.08);
+        }
+        .mainTop{
+          height: 48px;
+          background-color: #FFF100;
+        }
+        .membershipLevel{
+          height:60px;
+          width:70%;
+          background-color:#BD870D;
+          color:#FFF;
+        }
+        .membershipLevel div{
+          padding-top:10px;
+        }
+        .membershipLevel div b{
+          font-size:16px;
+        }
+        .membershipLevel div span{
+          font-size: 12px;
+        }
+
+        .updateSubmit{
+          margin: 0;
+          padding: 0;
+          text-align: center;
+        }
+        .updateSubmit button{
+          padding: 0.8em 5em;
+          margin: 10px auto;
+          border-radius: 5px;
+          color: #eee;
+          background-color: #87CEFF;
+          font-size: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--page start-->
+    <div class="header bgc-FFF100">
+        <ul class="headerMenu flex">
+            <li onclick="window.history.go(-1)"><i class="icon iconfont icon-arrowleft"></i></li>
+            <h1 class="flex-1 theme">会员升级</h1>
+            <li></li>
+        </ul>
+    </div>
+    <!--main start-->
+    <div class="main scrollable">
+      <div class="mainTop">
+          <div class="flex">
+               <div style="width:100%;text-align: center;"><img id="userAvatar" style="width: 90px;height: 90px;border-radius: 100%;" src="" /></div>
+           </div>
+      </div>
+      <div style="width: 100%;height: auto;margin-top:43px;">
+        <div class="flex" style="background-color: #FAFAFA;display:flex;line-height: 33px;">
+            <ul class="flex-1 border-r-1-s-EEEEEE" style="width: 80px;height: 80px;text-align: center;border-right: 1px solid #EEE;flex: 1;">
+                <b id="membershipGrade"></b><br/>
+                <span styel="font-size: 16px;margin: 12px 0 0 0;">当前等级</span>
+            </ul>
+            <ul class="flex-1 border-r-1-s-EEEEEE" style="width: 80px;height: 80px;text-align: center;border-right: 1px solid #EEE;flex: 1;">
+                <b id="membershipDistance"></b><br/>
+                <span styel="font-size: 16px;margin: 12px 0 0 0;">下一个等级</span>
+            </ul>
+        </div>
+        <div class="flex" style="background-color: #FAFAFA;display:flex;line-height: 33px;">
+            <ul class="flex-1 border-r-1-s-EEEEEE" style="width: auto;height: 80px;text-align: center;border-right: 1px solid #EEE;flex: 1;">
+                <b id="memberPoints"></b><br/>
+                <span styel="font-size: 16px;margin: 12px 0 0 0;">当前积分</span>
+            </ul>
+            <ul class="flex-1 border-r-1-s-EEEEEE" style="width: auto;height: 80px;text-align: center;border-right: 1px solid #EEE;flex: 1;">
+                <b id="upgradeIntegration"></b><br/>
+                <span styel="font-size: 16px;margin: 12px 0 0 0;">升级积分</span>
+            </ul>
+        </div>
+      </div>
+
+      <div class="updateSubmit">
+          <button type="button" onclick="submitMember()" >升级</button>
+      </div>
+    </div>
+    <!--main end-->
+
+    <!--page end-->
+    <script type="text/javascript" src="/i/js/_e.js"></script>
+    <script type="text/javascript" src="/i/js/msgbox.js"></script>
+    <script type="text/javascript" src="i/js/memberUpgrade.js"></script>
+</body>
+
+</html>

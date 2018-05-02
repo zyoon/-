@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>Mr.Ten</title>
+    <link rel="icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/i/css/img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/i/css/img/favicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/loading.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/iconfont/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/i/css/sale/mobile.css" />
+
+
+
+
+</head>
+
+<body>
+    <div class="header bgc-FFF100">
+        <ul class="headerMenu flex">
+            <li onclick="location.href='mydelivery.html'"><i class="icon iconfont icon-arrowleft"></i></li>
+            <h1 class="flex-1">配送进度</h1>
+            <li></li>
+        </ul>
+    </div>
+    <div class="main scrollable bgc-FAFAFA">
+        <div class="orderDetail" style="margin:0">
+            <div id="orderInfo" class="orderInfo">
+            </div>
+            <div class="order">
+                <button type="button" class="bgc-6CB6FF UrDelvr">确定已收货</button>
+                <!-- <button type="button" class="bgc-DDDDDD">未送达</button> -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="winbg closewin" style="display: none;">
+        <div class="tipsWin cartTipsWin" style="display: block; top: 0px; height: 480px; position: fixed; margin-top: 0px; transition: all 0.4s ease;">
+            <div class="mainDiv">
+                <div class="infoTips">
+                    <div>
+                        <ul><i class="icon iconfont icon-infocircleo"></i></ul>
+                        <li>
+                            <h1>确定此次配送完成？</h1>
+                        </li>
+                        <p>
+                            <button type="button" class="bgc-EEEEEE">取消</button>
+                            <button type="button" class="bgc-EEEEEE" onclick="comfirm_goods()">确定</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="closeInfoTips">
+                    <li></li>
+                    <p class="closewin"><i class="icon iconfont icon-close"></i></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script src="/i/js/_e.js"></script>
+<script src="/i/js/msgbox.js"></script>
+<script type="text/javascript" src="i/js/deliverydetail.js"></script>
+
+</html>
